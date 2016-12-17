@@ -72,6 +72,7 @@
 	
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+		<script src="jquery.easing.1.3.js"></script>
 		
 		<script>
 		
@@ -110,15 +111,19 @@
 					i++;
 				}
 				
-				$("#"+dialog.id).fadeIn("slow", function(){
-					
-					if($("div").length>3){
-					
-						$("div").first().fadeOut();
-					
-					}
-				
-				});
+				/*$("#"+dialog.id).fadeIn("slow", function(){
+						$('html, body').animate({ 
+						   scrollTop: $(document).height()-$(window).height()}, 
+						   1400, 
+						   "easeOutQuint"
+						);
+				});*/
+				$("#"+dialog.id).fadeIn(1200);
+				$('html, body').animate({ 
+						   scrollTop: $(document).height()-$(window).height()}, 
+						   1000, 
+						   "easeOutQuint"
+						);
 			}
 			
 			
@@ -152,14 +157,14 @@
 			dialog1 = {id:"1", text:"You finally reach the entrance of the dungeon. Loot and babes surely await inside. An old man sits next to the entrance", button1:['button1', 'Go In', '2', ''], button2:['button2', 'Leave', '3', '1']};
 			dialog2 = {id:"2", text:"\"Welcome Traveler\"", button1:['button3', 'Greet the OLD MAN', '4', ''], button2:['button4', '...', '5', ''], button3:['button5', 'Go Inside', '6', '']};
 			dialog3 = {id:"3", text:"You suddenly realize this place is incredibly sketch, so you turn around and go back to whatever your life is. THE END"};
-			dialog4 = {id:"4", text:"\"Why do you seek the dungeon stranger?\"", button1:['button6', '\"Riches\"', '4a'], button2:['button7', '\"Power\"', '4b'], button3:['button8', '\"Knowledge\"', '4c']};
-			dialog5 = {id:"4a", text:"\"A foolhardy ambition.. but this might help you\" the OLD MAN says and offers you a rather old pouch, intricate gold patchwork decorating", button1:['button9', 'Take the pouch', '4d1'],button2:['button10', 'Refuse', '4e']};
-			dialog6 = {id:"4b", text:"\"Power always costs... Take this amulet and hold it close if it's power you seek\" the OLD MAN says and offers you a dim crystal pendant", button1:['button9', 'Take the pendant', '4d2'],button2:['button10', 'Refuse', '4e']};
-			dialog7 = {id:"4c", text:"\"Ha! I like that... but some things are not meant to be known. I hope this helps.\" the OLD MAN says and offers you a small dagger, with an ebony blade", button1:['button9', 'Take the dagger', '4d3'],button2:['button10', 'Refuse', '4e']};
+			dialog4 = {id:"4", text:"\"Why do you seek the dungeon stranger?\"", button1:['button6', '\"Riches\"', '4a', ''], button2:['button7', '\"Power\"', '4b', ''], button3:['button8', '\"Knowledge\"', '4c', '']};
+			dialog5 = {id:"4a", text:"\"A foolhardy ambition.. but this might help you\" the OLD MAN says and offers you a rather old pouch, intricate gold patchwork decorating", button1:['button9', 'Take the pouch', '4d1', ''],button2:['button10', 'Refuse', '4e', '']};
+			dialog6 = {id:"4b", text:"\"Power always costs... Take this amulet and hold it close if it's power you seek\" the OLD MAN says and offers you a dim crystal pendant", button1:['button9', 'Take the pendant', '4d2', ''],button2:['button10', 'Refuse', '4e', '']};
+			dialog7 = {id:"4c", text:"\"Ha! I like that... but some things are not meant to be known. I hope this helps.\" the OLD MAN says and offers you a small dagger, with an ebony blade", button1:['button9', 'Take the dagger', '4d3', ''],button2:['button10', 'Refuse', '4e', '']};
 			dialog8 = {id:"4d1", text:"You take the BAG OF HOLDING", button1:['button11', 'Go Inside', '']};
 			dialog9 = {id:"4d2", text:"You take the ORB OF REFLECTIONS", button1:['button11', 'Go Inside', '']};
 			dialog10 = {id:"4d3", text:"You take the EBONY DAGGER", button1:['button11', 'Go Inside', '']};
-			dialog11 = {id:"4e", text:"\"Not interested? Relying on yourself only can get exhausting friend\"", button1:['button11', 'Go Inside', '']};
+			dialog11 = {id:"4e", text:"\"Not interested? Relying on yourself only can get exhausting friend\"", button1:['button11', 'Go Inside', '', '']};
 			dialog = {id:"", text:"", button1:['', '', '']};
 			array = [dialog1, dialog2,dialog3,dialog4,dialog5,dialog6,dialog7, dialog8,dialog9,dialog10,dialog11];
 			dialog1 =	{id:"1", text:"You finally reach the entrance of the dungeon. Loot and babes surely await inside. An skeleton sits next to the entrance", button1:['button1', 'Go In', '2', ''], button2:['button2', 'Leave', '3', 'B']};
