@@ -113,8 +113,6 @@
 						
 					
 					}).appendTo('#'+dialog.id);
-					console.log("sdfas");
-					console.log(dialog['button'+i][4]);
 					if(dialog['button'+i][4]!=''){
 						$("#"+dialog['button'+i][0]).addClass(dialog['button'+i][4]);
 						
@@ -125,7 +123,6 @@
 					}
 					
 					
-					console.log(i);
 					i++;
 				}
 				
@@ -140,6 +137,7 @@
 			
 			function getNext(event){
 				$('#'+event.data.unset+' *').off();
+				$('#'+event.data.unset+' *').removeAttr('id');
 				if(event.data.changeArray == ''){
 					id = event.data.goTo;
 					for (var i=0; mainArray.length; i++) {
@@ -181,7 +179,7 @@
 			dialog = {id:"", text:"", button1:['', '', '','']};
 			array0 = [dialog1, dialog2,dialog3,dialog4,dialog5,dialog6,dialog7, dialog8,dialog9,dialog10,dialog11,dialog12];
 			dialog1 = {id:"1", text:"You traverse the dark passage. Finally, you emerge in a vast stone hallway. Twelve statues stand along the sides of the wall. You don't pay attention to them since this adventure is pretty short. At the far end a gate leads into a stairway. It's quiet. Too quiet. Or maybe not, you've never really been in a dungeon before. There seem to be several human sized bones lying around.", button1:['button1', 'Enter the stairway', '2', '','',''], button2:['button2', 'Check for traps', '3', '','',''], button3:['button3', 'Admire the statues', '1a', '','','']};
-			dialog2 = {id:"1a", text:"What statues?", button1:['button4', 'Enter the stairway', '2a', '','',''], button2:['button5', 'Check for traps', '2b', '','',''], button3:['button6', 'Admire the statues', '', '','fade','']};
+			dialog2 = {id:"1a", text:"What statues?", button1:['button1', 'Enter the stairway', '2a', '','',''], button2:['button2', 'Check for traps', '2b', '','',''], button3:['button3', 'Admire the statues', '', '','fade','']};
 			dialog = {id:"2a", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
 			dialog = {id:"2b", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
 			dialog = {id:"", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
