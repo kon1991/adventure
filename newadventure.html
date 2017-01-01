@@ -5,122 +5,43 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
 		<script src="jquery.easing.1.3.js"></script>
-		<style>
-		
-			html {
-				
-				background: url(bg.jpg) center center fixed;
-				margin: 0;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-			
-			.dialogContainer {
-				
-				font-family: 'Taviraj', serif;
-				width: 600px;
-				padding-left: 5px;
-				
-				padding-right: 5px;
-				margin: 0 auto;
-				border-radius: 15px;
-				color:white;
-				text-align:center;
-				background-color: rgba(0,0,0,0.9);
-				box-shadow: 5px 5px 2px #000000;
-				display:none;
-				
-			}
-			
-			.dialogContainer>p {
-				
-					padding: 20px 20px 10px 20px;
-					opacity: 1 !important;
-			}
-			
-			.dialogContainer>button {
-				
-				width:150px;
-				height:100px;
-				border-color:#6f578e;
-				margin-bottom:20px;
-				margin-left:10px;
-				
-				margin-right:10px;
-				background-color: #561f9e;
-				font-family: 'Taviraj', serif;
-				color:white;
-				
-			}
-			
-			.red {
-				background-color: red !important;
-			}
-			
-			
-			
-			
-			
-		</style>
-		
 	</head>
-	
-	
 	<body>
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/lPUTddT8APc?autoplay=1&loop=1" hidden frameborder="0" allowfullscreen></iframe>
 		<script>
 			$("body").on("click", "button.fade", function(){
 				$(this).fadeOut("fast");
 			});
-			
+
 			function createDialog(dialog){
-				
+
 				jQuery('<div/>', {
 					id: dialog.id,
 					"class": 'dialogContainer',
 				}).appendTo('body');
-				
+
 				jQuery('<p/>', {
-					
 					text: dialog.text,
-					
 				}).appendTo('#'+dialog.id);
-				
+
 				var i = 1;
 				while(dialog.hasOwnProperty('button'+i)){
-					
-					
+
 					jQuery('<button/>', {
-						
 						id: dialog['button'+i][0],
 						text: dialog['button'+i][1],
-						
-							
-						
-					
 					}).appendTo('#'+dialog.id);
 					if(dialog['button'+i][4]!=''){
 						$("#"+dialog['button'+i][0]).addClass(dialog['button'+i][4]);
-						
-						
 					}
 					if(dialog['button'+i][2]!=''){
 						$("#"+dialog['button'+i][0]).on('click', {goTo: dialog['button'+i][2], unset: dialog.id, changeArray: dialog['button'+i][3] }, getNext);
 					}
+<<<<<<< HEAD
 					
 				
 					
@@ -134,11 +55,20 @@
 				$('html, body').animate({ 
 						   scrollTop: $(document).height()-$(window).height()}, 
 						   800, 
+=======
+
+					i++;
+				}
+
+				$("#"+dialog.id).fadeIn(1200);
+				$('html, body').animate({
+						   scrollTop: $(document).height()-$(window).height()},
+						   1000,
+>>>>>>> origin/master
 						   "easeOutQuint"
 						);
 			}
-			
-			
+
 			function getNext(event){
 			
 				
@@ -155,7 +85,7 @@
 							break;
 						}
 					}
-				
+
 				}
 				else{
 					mainArray = arrays[event.data.changeArray];
@@ -163,15 +93,10 @@
 					$('div').removeAttr("id");
 					
 					createDialog(d);
-					
-				
 				}
-				
-				
 			}
-			
-			
-			
+
+
 			dialog1 = {id:"1", text:"You finally reach the entrance of the dungeon. Loot and babes surely await inside. An old man sits next to the entrance", button1:['button1', 'Approach the old man', '2', '','red',''], button2:['button2', 'Go home and be a family man', '3', '','','']};
 			dialog2 = {id:"2", text:"\"Welcome Traveler\"", button1:['button3', 'Greet the OLD MAN', '4', '','',''], button2:['button4', '...', '4l', '','','']};
 			dialog3 = {id:"3", text:"You suddenly realize this place is incredibly sketch, so you turn around and go back to whatever your life is. THE END"};
@@ -182,7 +107,7 @@
 			dialog8 = {id:"4d1", text:"You take the BAG OF HOLDING", button1:['button11', 'Go Inside', '5','','','']};
 			dialog9 = {id:"4d2", text:"You take the ORB OF REFLECTIONS", button1:['button11', 'Go Inside', '5','','','']};
 			dialog10 = {id:"4d3", text:"You take the EBONY DAGGER", button1:['button11', 'Go Inside', '5','','','']};
-			
+
 			dialog11 = {id:"4e", text:"\"Not interested? Relying on yourself only can get exhausting friend\"", button1:['button11', 'Go Inside', '5', '','','']};
 			dialog10 = {id:"4l", text:"One of those mute protagonists then? I think I have a crowbar around here somewhere...", button1:['button13', 'Go Inside', '5','','','']};
 			dialog12 = {id:"5", text:"You step forth to enter the dungeon. Two old statues, their faces destroyed by time hold fires in their hands. As you take the first step inside a chilling wind rushes through. You have a bad feeling about this.", button1:['button12', 'ENTER', '0','1','','']};
@@ -200,16 +125,6 @@
 			mainArray = arrays[0];
 			dialog = mainArray[0];
 			createDialog(dialog);
-			 
-			
-			 
-			   
-			
-			
-			
-		</script>
-		
-	</body>
-
-
+			</script>
+</body>
 </html>
