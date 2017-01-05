@@ -11,11 +11,17 @@
 		<script src="jquery.easing.1.3.js"></script>
 	</head>
 	<body>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/lPUTddT8APc?autoplay=1&loop=1" hidden frameborder="0" allowfullscreen></iframe>
+		<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/lPUTddT8APc?autoplay=1&loop=1" hidden frameborder="0" allowfullscreen></iframe>-->
 		<script>
 			$("body").on("click", "button.fade", function(){
-				$(this).fadeOut("fast");
+				$(this).fadeOut("fast", function() {
+				
+					$(this).next().show();
+				});
+				
 			});
+			
+			
 
 			function createDialog(dialog){
 
@@ -45,6 +51,12 @@
 					
 					
 					i++;
+				}
+				
+				if($('#'+dialog.id+' button:not([style*="display: none"])').length>3){
+				
+					$("#"+dialog.id+" button").last().css("display","none");
+				
 				}
 				
 				$("#"+dialog.id).css("margin-bottom", function() {
@@ -101,16 +113,17 @@
 			dialog = {id:"", text:"", button1:['', '', '','']};
 			array0 = [dialog1, dialog2,dialog3,dialog4,dialog5,dialog6,dialog7, dialog8,dialog9,dialog10,dialog11,dialog12];
 			dialog1 = {id:"1", text:"You traverse the dark passage. Finally, you emerge in a vast stone hallway. Twelve statues stand along the sides of the wall. You don't pay attention to them since this adventure is pretty short. At the far end a gate leads into a stairway. It's quiet. Too quiet. Or maybe not, you've never really been in a dungeon before. There seem to be several human sized bones lying around.", button1:['button1', 'Enter the stairway', '2', '','',''], button2:['button2', 'Check for traps', '3', '','',''], button3:['button3', 'Admire the statues', '1a', '','','']};
-			dialog2 = {id:"1a", text:"What statues?", button1:['button1', 'Enter the stairway', '2a', '','',''], button2:['button2', 'Check for traps', '2b', '','',''], button3:['button3', 'Admire the statues', '', '','fade','']};
+			dialog2 = {id:"1a", text:"What statues?", button1:['button1', 'Enter the stairway', '2a', '','',''], button2:['button2', 'Check for traps', '2b', '','',''], button3:['button3', 'Admire the statues', '', '','fade',''],button4:['button4', 'Admire the statues', '100', '','invisible','']};
 			dialog3 = {id:"2a", text:"Really? Not even a peek? Are you... sure?", button1:['button1', 'Nah', '2a1', '','',''], button2:['button2', 'Check for traps', '2a2', '','','']};
-			dialog5 = {id:"2a1", text:"You advance to the stairway. You somehow evade every trap. Much wow. Such LUCK [+1]", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
-			dialog = {id:"2a2", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
-			dialog = {id:"", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
-			dialog = {id:"", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
-			dialog = {id:"", text:"", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
-			array1 = [dialog1,dialog2];
+			dialog5 = {id:"2a1", text:"You advance to the stairway. You somehow evade every trap. Much wow. Such LUCK [+1]", button1:['button1', '', '', '','',''], button2:['button2', '', '', '','',''], button3:['button3', '', '', '','','']};
+			dialog6 = {id:"2a2", text:"You carefully search the hallway as you advance. You discover a bunch of old and broken down dart traps. Unfortunately messing with one of them activates it. You dodge the dart, but not before it leaves a cool scar on your face CHARISMA [+1]", button1:['button', '', '', '','',''], button2:['button', '', '', '','',''], button3:['button', '', '', '','','']};
+			dialog7 = {id:"100", text:"Do you think this place is a museum or something famalam? Anyway, you admire the statues. Most of them are in a bad shape but they appear to portray the warrior saints of Angor. Saint Ludwig the patron of blades seems to have fared a bit better than the rest. His Greatsword is in especially good shape. It doesn't even look like stone...", button1:['button1', 'Examine Sword', '101', '','','']};
+			dialog = {id:"", text:"", button1:['button1', '', '', '','',''], button2:['button2', '', '', '','',''], button3:['button3', '', '', '','','']};
+			dialog = {id:"", text:"", button1:['button1', '', '', '','',''], button2:['button2', '', '', '','',''], button3:['button3', '', '', '','','']};
+			dialog = {id:"", text:"", button1:['button1', '', '', '','',''], button2:['button2', '', '', '','',''], button3:['button3', '', '', '','','']};
+			array1 = [dialog1,dialog2,dialog3,dialog5, dialog6, dialog7];
 			arrays = [array0,array1];
-			mainArray = arrays[0];
+			mainArray = arrays[1];
 			dialog = mainArray[0];
 			createDialog(dialog);
 			</script>
