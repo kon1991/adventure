@@ -50,4 +50,32 @@
 	color: transparent !important;
   }
   
+  #player {
+	  
+	  float: left;
+	  position: fixed;
+	  left: 30px;
+      top: 70px;
+	  width: 300px;
+	  text-align: center;
+	  background-color: black;
+	  border-radius: 10px;
+	  
+  }
   
+  #player-img {
+	  
+	  margin-top: 10px;
+	  height: auto; 
+	  width: auto; 
+	  max-width: 200px; 
+	  max-height: 200px;
+	  
+  }
+  
+  .stat {
+	  
+	  color: white;
+	  
+  }
+	
